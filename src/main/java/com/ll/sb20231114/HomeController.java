@@ -3,6 +3,7 @@ package com.ll.sb20231114;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -224,10 +225,17 @@ public class HomeController {
         return html;
     }
 
+    @GetMapping("/calc21")
+    String showCalc21(Model model){
+        model.addAttribute("v1", "제목");
+        model.addAttribute("v2", "내용");
+        return "calc21";
+    }
+
     int num = 0;
     @GetMapping("/calc22")
     @ResponseBody
-    int showCalc21() {
+    int showCalc22() {
         num++;// 예시 : ???++; // 이 부분을 코딩해보세요.
         return num;
     }
