@@ -57,4 +57,22 @@ public class HomeController {
     ){
         return a + b;
     }
+
+    //int 타입으로 리턴하지만 브라우저에서는 String으로 취급되어 보여지게 됨
+    @GetMapping("/calc6")
+    @ResponseBody
+    int showCalc6(
+            int a, int b
+    ) {
+        return a + b;
+    }
+
+    //boolean 타입으로 리턴하지만 브라우저에서는 String으로 취급되어 보여지게 됨
+    @GetMapping("/calc7")
+    @ResponseBody
+    boolean showCalc7(
+            int a, int b
+    ) {
+        return a > b;
+    }
 }
