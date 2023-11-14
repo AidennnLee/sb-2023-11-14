@@ -128,6 +128,109 @@ public class HomeController {
         int[] nums = new int[]{10, -510, 10010};
         return nums;
     }
+
+    @GetMapping("/calc13")
+    @ResponseBody
+    List<Person2> showCalc13(
+            String name, int age
+    ){
+        List<Person2> persons = new ArrayList<>(){{
+            add(new Person2(name, age));
+            add(new Person2(name + "!", age + 1));
+            add(new Person2(name + "!!", age + 2));
+        }};
+        return persons;
+    }
+
+    @GetMapping("/calc14")
+    @ResponseBody
+    int[] showCalc14(){
+        int[] nums = new int[]{10, -510, 10010};
+        return nums;
+    }
+
+    //calc15, 16, 17 브라우저 화면 동일. ctrl + u를 통해 source 확인할 것.
+    @GetMapping("/calc15")
+    @ResponseBody
+    String showCalc15(){
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("<div>");
+        sb.append("<input type=\"text\" placeholder=\"내용\">");
+        sb.append("<div>");
+
+        return sb.toString();
+    }
+
+    @GetMapping("/calc16")
+    @ResponseBody
+    String showCalc16(){
+        String html = "<div><input type=\"text\" placeholder=\"내용\"><div>";
+
+        return html;
+    }
+
+    @GetMapping("/calc17")
+    @ResponseBody
+    String showCalc17(){
+        String html = """
+                <div>
+                    <input type=\"text\" placeholder=\"내용\">
+                <div>
+                """;
+
+        return html;
+    }
+
+    @GetMapping("/calc18")
+    @ResponseBody
+    String showCalc18(){
+        String html = """
+                <div>
+                    <input type=\"text\" placeholder=\"내용\" value=\"기본값\">
+                <div>
+                """;
+
+        return html;
+    }
+
+    //String 값 전달하지 않은 경우 null
+    @GetMapping("/calc19")
+    @ResponseBody
+    String showCalc19(String value){
+        String html = """
+                <div>
+                    <input type=\"text\" placeholder=\"내용\" value=\"%s">
+                <div>
+                """.formatted(value);
+
+        return html;
+    }
+
+    @GetMapping("/calc20")
+    @ResponseBody
+    String showCalc20(@RequestParam(defaultValue = "") String subject,
+                      @RequestParam(defaultValue = "") String value
+    ){
+        String html = """
+                <div>
+                    <input type=\"text\" placeholder=\"제목\" value=\"%s">
+                <div>
+                <div>
+                    <input type=\"text\" placeholder=\"내용\" value=\"%s">
+                <div>
+                """.formatted(subject, value);
+
+        return html;
+    }
+
+    int num = 0;
+    @GetMapping("/calc22")
+    @ResponseBody
+    int showCalc21() {
+        num++;// 예시 : ???++; // 이 부분을 코딩해보세요.
+        return num;
+    }
 }
 
 @AllArgsConstructor
