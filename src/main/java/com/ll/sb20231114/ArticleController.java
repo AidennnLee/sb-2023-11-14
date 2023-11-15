@@ -19,18 +19,18 @@ public class ArticleController {
 
     @GetMapping("/article/doWrite")
     @ResponseBody
-    Map<String, Object> doWrite(
+    RsData doWrite(
             String title,
             String body
     ){
         Article article = new Article(articles.size() + 1, title, body);
-
-        Map<String, Object> rs = new LinkedHashMap<>();
-        rs.put("resultCode", "S-1");
-        rs.put("msg", "%d번 게시물이 작성되었습니다.".formatted(article.getId()));
-        rs.put("data", article);
-
         articles.add(article);
+
+        RsData<Article> rs = new RsData<>(
+                "S-1",
+                "%d번 게시물이 작성되었습니다.".formatted(article.getId()),
+                article
+        );
 
         return rs;
     }
@@ -46,6 +46,14 @@ public class ArticleController {
     Article getLastArticle( ){
         return articles.getLast();
     }
+}
+
+@AllArgsConstructor
+@Getter
+class RsData<T>{ //Result Data
+    private String resultCode;
+    private String msg;
+    private T data;
 }
 
 @AllArgsConstructor
