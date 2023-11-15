@@ -11,8 +11,11 @@
 
 <script>
     function submitWriteForm(){
-        const title = document.getElementById('input-title').value.trim(); //공백만 입력하는 경우 trim으로 제거
-        const body = document.getElementById('input-body').value.trim(); //공백만 입력하는 경우 trim으로 제거
+        document.getElementById('input-title').value = document.getElementById('input-title').value.trim(); //양끝에 공백 입력된 경우 trim으로 미리 제거
+        document.getElementById('input-body').value = document.getElementById('input-body').value.trim(); //양끝에 공백 입력된 경우 trim으로 미리 제거
+
+        const title = document.getElementById('input-title').value;
+        const body = document.getElementById('input-body').value;
 
         if(title.length == 0){
             alert('제목을 입력하세요.');
