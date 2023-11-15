@@ -1,7 +1,7 @@
 <!--onsubmit="return false;" 폼 자동 발송을 막음-->
 <!--div -> form으로 바꾸고 onsubmit에 submitWriteForm()를 전달하면 엔터를 치는 것만으로도 폼이 발송됨.
 버튼을 누르지 않고 엔터를 치기만 해도 로그인 되는 것과 같은 상황.-->
-<form method="POST" action="/article/doWrite" onsubmit="submitWriteForm(this); return false;"
+<form method="POST" action="/article/write" onsubmit="submitWriteForm(this); return false;"
       style="display: flex; flex-direction: column; gap: 20px; max-width: 500px">
     <input type="text" name = "title" placeholder="제목">
 

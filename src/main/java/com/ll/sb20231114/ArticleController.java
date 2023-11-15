@@ -18,7 +18,8 @@ public class ArticleController {
         return "article/write";
     }
 
-    @PostMapping("/article/doWrite")
+    //GetMapping과 PostMapping이므로 url 동일해도 됨
+    @PostMapping("/article/write")
     @ResponseBody
     RsData doWrite(
             String title,
