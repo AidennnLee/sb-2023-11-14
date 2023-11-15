@@ -3,6 +3,7 @@ package com.ll.sb20231114.domain.article.article.controller;
 import com.ll.sb20231114.domain.article.article.entity.Article;
 import com.ll.sb20231114.domain.article.article.service.ArticleService;
 import com.ll.sb20231114.global.rsData.RsData.RsData;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ import java.util.*;
 
 //전체 구조 : controller -> service 호출 -> repository 호출 -> 세 부분이 entity를 주고받음
 @Controller
+@RequiredArgsConstructor
 public class ArticleController {
     @Autowired //필드 자동 주입. new로 생성하지 않아도 됨. Component인 경우만 가능
     private ArticleService articleService;
