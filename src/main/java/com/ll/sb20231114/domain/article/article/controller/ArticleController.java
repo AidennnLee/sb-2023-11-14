@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.*;
 
+//전체 구조 : controller -> service 호출 -> repository 호출 -> 세 부분이 entity를 주고받음
 @Controller
 public class ArticleController {
     private final ArticleService articleService = new ArticleService();
